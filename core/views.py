@@ -62,3 +62,9 @@ def signin(request):
             return redirect('signin')
     else:
         return render(request, 'signin.html')
+
+
+@login_required(login_url='signin')
+def logout(request):
+    auth.logout(request)
+    return redirect('signin')
